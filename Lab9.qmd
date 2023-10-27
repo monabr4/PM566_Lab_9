@@ -1,7 +1,13 @@
 ---
-title: "PM566Lab9"
-format: html
+
+---
+title: "Lab 09 - HPC"
+author: Mona Bandov
+format:
+  html:
+    embed resources: true
 editor: visual
+date: "2023-10-27"
 ---
 
 ## PM566 Lab9 - HPC

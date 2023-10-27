@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>PM566Lab9</title>
+<title>lab9</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -77,23 +77,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">PM566Lab9</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
+<hr>
+<hr>
+<p>title: “Lab 09 - HPC” author: Mona Bandov format: html: embed resources: true editor: visual date: “2023-10-27”</p>
+<hr>
 <section id="pm566-lab9---hpc" class="level2">
 <h2 class="anchored" data-anchor-id="pm566-lab9---hpc">PM566 Lab9 - HPC</h2>
 <div class="cell">
@@ -182,9 +171,9 @@ nanosecond times to avoid potential integer overflows</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-      expr     min       lq     mean   median       uq      max neval cld
-    fun1() 157.522 173.6555 193.0772 175.7465 180.5435 1703.058   100  a 
- fun1alt()  13.448  13.9810  22.9887  14.4525  15.0060  857.720   100   b</code></pre>
+      expr     min       lq      mean   median       uq      max neval cld
+    fun1() 156.620 173.3685 198.26657 178.0835 182.9010 1634.793   100  a 
+ fun1alt()  13.079  13.9400  30.05628  14.5960  15.3135  855.916   100   b</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -218,9 +207,9 @@ nanosecond times to avoid potential integer overflows</code></pre>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(<span class="fu">fun2</span>(x), <span class="fu">fun2alt</span>(x), <span class="at">times =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Unit: microseconds
-       expr     min       lq      mean   median       uq      max neval cld
-    fun2(x) 508.154 516.3745 549.50574 522.8115 532.8975 2493.538  1000  a 
- fun2alt(x)  27.593  28.1670  29.26281  28.3720  28.7410  633.532  1000   b</code></pre>
+       expr     min      lq      mean  median       uq      max neval cld
+    fun2(x) 508.400 516.313 549.21197 521.889 530.0275 4018.328  1000  a 
+ fun2alt(x)  27.634  28.167  29.38396  28.372  28.7410  607.292  1000   b</code></pre>
 </div>
 </div>
 <p>Show that both functions return the same output for a given input matrix, <code>x</code>. Then check the speed of the two functions.</p>
@@ -296,12 +285,12 @@ x            4.8650100 5.04883353</code></pre>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">my_boot</span>(<span class="at">dat =</span> <span class="fu">data.frame</span>(x, y), my_stat, <span class="at">R =</span> <span class="dv">4000</span>, <span class="at">ncpus =</span> 1L))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  1.093   0.028   1.121 </code></pre>
+  1.090   0.018   1.109 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">my_boot</span>(<span class="at">dat =</span> <span class="fu">data.frame</span>(x, y), my_stat, <span class="at">R =</span> <span class="dv">4000</span>, <span class="at">ncpus =</span> 2L))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   user  system elapsed 
-  0.584   0.073   0.659 </code></pre>
+  0.020   0.018   0.706 </code></pre>
 </div>
 </div>
 </section>
